@@ -19,11 +19,11 @@ jobs:
         run: |
           oldver='2.3.0'
           newver='2.4.0'
-          echo "# SP $newver Release Notes"$'\n'"bla bla bla"$'\n' >> "${{github.workspace}}/output/sp-$newver.txt"
+          echo "# SP $newver Release Notes"$'\n'"bla bla bla"$'\n' > "${{github.workspace}}/output/sp-$newver.md"
           for file in `find "${{github.workspace}}/content/dev" -type f -name "sp*.md"`
           do
             content=$(< $file)
-            echo "$content" >> "${{github.workspace}}/output/sp-$newver.txt"
-            echo $'\n' >> "${{github.workspace}}/output/sp-$newver.txt"
+            echo "$content" >> "${{github.workspace}}/output/sp-$newver.md"
+            echo $'\n' >> "${{github.workspace}}/output/sp-$newver.md"
           done
 
