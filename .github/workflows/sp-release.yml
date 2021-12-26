@@ -28,3 +28,10 @@ jobs:
           done
           cat "sp-$newver.md"
 
+      - name: Replace version number
+        run: |
+          oldver='2.3.0'
+          newver='2.4.0'
+          sed -i "s/$oldver/$newver/g" ${{github.workspace}}/content/replaces/testreaplce.txt
+          
+
