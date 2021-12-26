@@ -26,4 +26,5 @@ jobs:
             echo "$content" >> "sp-$newver.md"
             echo $'\n' >> "sp-$newver.md"
           done
+          cat "sp-$newver.md"
 
