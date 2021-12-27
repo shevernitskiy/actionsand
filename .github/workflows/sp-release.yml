@@ -15,7 +15,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       # Runs a set of commands using the runners shell
-      - name: Generate changelog
+      - name: Get Versions
         run: |
           OLDVER=$(sed -n "s/.*\([0-9]\.[0-9]\.[0-9]*\).*/\1/p" ${{github.workspace}}/content/replaces/testreaplce.txt | head -1)
           MINOR=$(echo "$OLDVER" | sed -n "s/[0-9]\.\([0-9]\)\.[0-9]/\1/p")
@@ -23,16 +23,19 @@ jobs:
           NEWVER=$(echo "$OLDVER" | sed -n "s/\.$MINOR\./\.$NEWMINOR\./p")
           echo "OLDVER=$OLDVER" >> $GITHUB_ENV
           echo "NEWVER=$NEWVER" >> $GITHUB_ENV
-          echo "# SP $newver Release Notes"$'\n'"bla bla bla"$'\n' >> "sp-$NEWVER.md"
+
+      - name: Generate changelog
+        run: |
+          echo "# SP $NEWVER Release Notes"$'\n'"bla bla bla"$'\n' >> "sp-${{ env.NEWVER }}.md"
           for file in `find "${{github.workspace}}/content/dev" -type f -name "sp*.md"`
           do
             content=$(< $file)
-            echo "$content" >> "sp-$NEWVER.md"
-            echo $'\n' >> "sp-$NEWVER.md"
+            echo "$content" >> "sp-${{ env.NEWVER }}.md"
+            echo $'\n' >> "sp-${{ env.NEWVER }}.md"
           done
-          cat "sp-$NEWVER.md"
+          cat "sp-${{ env.NEWVER }}.md"
 
-      - name: Replace version number
+      - name: Replace Version In Files
         run: |
           sed -i "s/${{ env.OLDVER }}/${{ env.NEWVER }}/g" ${{github.workspace}}/content/replaces/testreaplce.txt
 
@@ -41,5 +44,5 @@ jobs:
         with:
           commit-message: "Update SP to ${{ env.NEWVER }}"
           title: "release(skyrim-platform): version ${{ env.NEWVER }}"
-          body: Test message
+          body: Bot put here this release PR, enjoy...
           branch: release-branch
