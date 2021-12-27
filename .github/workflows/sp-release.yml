@@ -17,27 +17,29 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Generate changelog
         run: |
-          oldver='2.3.0'
-          newver='2.4.0'
-          echo "# SP $newver Release Notes"$'\n'"bla bla bla"$'\n' >> "sp-$newver.md"
+          OLDVER=$(sed -n "s/.*\([0-9]\.[0-9]\.[0-9]*\).*/\1/p" ${{github.workspace}}/content/replaces/testreaplce.txt | head -1)
+          MINOR=$(echo "$oldver" | sed -n "s/[0-9]\.\([0-9]\)\.[0-9]/\1/p")
+          NEWMINOR=$((minor+1))
+          NEWVER=$(echo "$OLDVER" | sed -n "s/\.$MINOR\./\.$NEWMINOR\./p")
+          echo "OLDVER=$OLDVER" >> $GITHUB_ENV
+          echo "NEWVER=$NEWVER" >> $GITHUB_ENV
+          echo "# SP $newver Release Notes"$'\n'"bla bla bla"$'\n' >> "sp-$NEWVER.md"
           for file in `find "${{github.workspace}}/content/dev" -type f -name "sp*.md"`
           do
             content=$(< $file)
-            echo "$content" >> "sp-$newver.md"
-            echo $'\n' >> "sp-$newver.md"
+            echo "$content" >> "sp-$NEWVER.md"
+            echo $'\n' >> "sp-$NEWVER.md"
           done
-          cat "sp-$newver.md"
+          cat "sp-$NEWVER.md"
 
       - name: Replace version number
         run: |
-          oldver='2.3.0'
-          newver='2.4.0'
-          sed -i "s/$oldver/$newver/g" ${{github.workspace}}/content/replaces/testreaplce.txt
+          sed -i "s/$OLDVER/$NEWVER/g" ${{github.workspace}}/content/replaces/testreaplce.txt
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: update authors
-          title: Update AUTHORS
-          body: Credit new contributors by updating AUTHORS
+          commit-message: "Update SP to ${{ env.NEWVER }}"
+          title: "release(skyrim-platform): version ${{ env.NEWVER }}"
+          body: Test message
           branch: release-branch
