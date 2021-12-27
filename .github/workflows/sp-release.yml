@@ -34,7 +34,7 @@ jobs:
 
       - name: Replace version number
         run: |
-          sed -i "s/$OLDVER/$NEWVER/g" ${{github.workspace}}/content/replaces/testreaplce.txt
+          sed -i "s/${{ env.OLDVER }}/${{ env.NEWVER }}/g" ${{github.workspace}}/content/replaces/testreaplce.txt
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
