@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Encode data from file
         run: |
-          TARGET="index.d.ts"
+          TARGET="${{github.workspace}}/index.d.ts"
           base64 -w 0 $TARGET > code.txt
           DATA=$(< code.txt)
           echo "DATA=$DATA" >> $GITHUB_ENV
