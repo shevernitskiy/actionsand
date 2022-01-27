@@ -14,8 +14,6 @@ jobs:
           CONTENT="test content2"
           echo "$CONTENT" > index.d.ts
           sed -i "s/\"version\".*,/\"version\": \"${{ github.event.client_payload.version }}\",/g" package.json
-          echo ${{ github.event.client_payload.version }} > recieve.txt
-          base64 -d recieve.txt > decode.txt
           echo "finish update data"
 
       - name: Commit changes
