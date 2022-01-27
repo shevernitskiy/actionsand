@@ -1,20 +1,14 @@
-# This is a basic workflow to help you get started with Actions
 
 name: SP Release
-
-
 on:
   workflow_dispatch:
-
 jobs:
-  filework:
+  sprelease:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      # Runs a set of commands using the runners shell
+
       - name: Get Versions
         run: |
           OLDVER=$(sed -n "s/.*\([0-9]\.[0-9]\.[0-9]*\).*/\1/p" ${{github.workspace}}/content/replaces/testreaplce.txt | head -1)
@@ -23,6 +17,8 @@ jobs:
           NEWVER=$(echo "$OLDVER" | sed -n "s/\.$MINOR\./\.$NEWMINOR\./p")
           echo "OLDVER=$OLDVER" >> $GITHUB_ENV
           echo "NEWVER=$NEWVER" >> $GITHUB_ENV
+          echo "Detect oldver: $OLDVER"
+          echo "Newver: $NEWVER"
 
       - name: Generate changelog
         run: |
@@ -45,4 +41,4 @@ jobs:
           commit-message: "Update SP to ${{ env.NEWVER }}"
           title: "release(skyrim-platform): version ${{ env.NEWVER }}"
           body: Bot put here this release PR, enjoy...
-          branch: release-branch
+          branch: "release-sp${{ env.NEWVER }}"
