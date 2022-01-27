@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Repository Dispatch
+      - name: Update Types Repo
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
