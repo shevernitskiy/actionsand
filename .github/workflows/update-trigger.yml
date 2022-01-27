@@ -12,4 +12,4 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: shevernitskiy/actionsand
           event-type: update-types
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          client-payload: '{"version": "2.6.0"}'

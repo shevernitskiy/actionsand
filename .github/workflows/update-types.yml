@@ -12,7 +12,7 @@ jobs:
       - name: Update files
         run: |
           TARGET="index.d.ts"
-          VERSION="2.5.0"
+          VERSION=${{ github.event.client_payload.version }}
           CONTENT="test content2"
           echo "$CONTENT" > $TARGET
           sed -i "s/\"version\".*,/\"version\": \"$VERSION\",/g" package.json
