@@ -11,13 +11,10 @@ jobs:
 
       - name: Update files
         run: |
-          TARGET="index.d.ts"
-          VERSION=${{ github.event.client_payload.version }}
           CONTENT="test content2"
-          echo "$CONTENT" > $TARGET
-          sed -i "s/\"version\".*,/\"version\": \"$VERSION\",/g" package.json
+          echo "$CONTENT" > index.d.ts
+          sed -i "s/\"version\".*,/\"version\": \"${{ github.event.client_payload.version }}\",/g" package.json
           echo "finish update data"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v8
