@@ -6,10 +6,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Encode data from file
+        run: |
+          TARGET="index.d.ts"
+          base64 -w 0 $TARGET > code.txt
+          DATA=$(< code.txt)
+          echo "DATA=$DATA" >> $GITHUB_ENV
       - name: Update Types Repo
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: shevernitskiy/actionsand
           event-type: update-types
-          client-payload: '{"version": "2.6.0"}'
+          client-payload: '{"version": "2.6.0", "data": "${{ env.DATA }}"}'
