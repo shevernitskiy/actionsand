@@ -1,10 +1,9 @@
 name: Update SP Types
 on:
-  workflow_dispatch:
   repository_dispatch:
-    types: [update-version]
+    types: [update-types]
 jobs:
-  updatetype:
+  updateType:
     runs-on: ubuntu-latest
 
     steps:
