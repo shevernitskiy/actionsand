@@ -1,27 +1,4 @@
-/* eslint-disable @typescript-eslint/adjacent-overload-signatures */
-/* eslint-disable @typescript-eslint/no-namespace */
-// Generated automatically. Do not edit.
-
-export declare class PapyrusObject {
-    static from(papyrusObject: PapyrusObject | null): PapyrusObject | null;
-}
-export type PapyrusValue = PapyrusObject | number | string | boolean | null | PapyrusValue[];
-export declare function printConsole(...arguments: unknown[]): void;
-export declare function writeLogs(pluginName: string, ...arguments: unknown[]): void;
-export declare function setPrintConsolePrefixesEnabled(enabled: boolean): void;
-export declare function callNative(className: string, functionName: string, self?: PapyrusObject, ...args: PapyrusValue[]): PapyrusValue;
-export declare function getJsMemoryUsage(): number;
-export declare function getPluginSourceCode(pluginName: string): string;
-export declare function writePlugin(pluginName: string, newSources: string): string;
-export declare function getPlatformVersion(): string;
-export declare function disableCtrlPrtScnHotkey(): void;
-export declare function sendIpcMessage(targetSystemName: string, message: ArrayBuffer): void;
-export declare function encodeUtf8(text: string): ArrayBuffer;
-export declare function decodeUtf8(buffer: ArrayBuffer): string;
-export declare let storage: Record<string, unknown>;
-export declare let settings: Record<string, Record<string, unknown>>;
-
-export declare function on(eventName: "update", callback: () => void): void;
+wegwegli;hpdate", callback: () => void): void;
 export declare function once(eventName: "update", callback: () => void): void;
 
 export declare function on(eventName: "tick", callback: () => void): void;

@@ -12,4 +12,4 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: shevernitskiy/actionsand
           event-type: update-types
-          client-payload: '{"version": "2.6.0"}'
+          client-payload: '{"version": "2.6.0", "url": "https://raw.githubusercontent.com/skyrim-multiplayer/skymp/main/skyrim-platform/src/platform_se/codegen/convert-files/skyrimPlatform.ts"}'
