@@ -3,12 +3,10 @@ on:
   pull_request:
     types:
       - closed
-    branches:    
-      - 'release-sp**'
       
 jobs:
   run_if:
-    if:  github.event.pull_request.merged == true
+    if:  github.event.pull_request.merged == true && startsWith(github.head_ref, 'release-sp')
     runs-on: ubuntu-latest
     steps:
       - run: echo "Release PR branch"
