@@ -14,7 +14,7 @@ on:
       
 jobs:
   run_if:
-    if:  (github.event.pull_request.merged == true && startsWith(github.head_ref, 'release(skyrim-platform)')) || github.event.inputs.tag
+    if:  github.event.inputs.tag == true
     runs-on: ubuntu-latest
     steps:
       - run: echo "Release PR branch ${{ github.event.inputs.tag }}"
