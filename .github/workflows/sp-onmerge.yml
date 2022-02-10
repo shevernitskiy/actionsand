@@ -4,8 +4,7 @@ on:
   pull_request:
     types:
       - closed
-    branches:
-      - 'main/**'
+      
 jobs:
   run_if:
     if:  startsWith(github.head_ref, 'releases/') && github.event.pull_request.merged == true
