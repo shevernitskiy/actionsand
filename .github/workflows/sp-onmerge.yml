@@ -9,7 +9,7 @@ on:
       
 jobs:
   run_if:
-    if:  (github.event.pull_request.merged == true && startsWith(github.head_ref, 'release(skyrim-platform)')) || github.event.workflow_dispatch
+    if:  true
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Release PR branch ${{ github.head_ref }}"
+      - run: echo "Release PR branch ${{ github.event.type }}"
