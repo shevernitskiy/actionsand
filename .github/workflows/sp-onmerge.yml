@@ -6,7 +6,7 @@ on:
       
 jobs:
   run_if:
-    if:  github.event.pull_request.merged == true && startsWith(github.head_ref, 'release-sp')
+    if:  github.event.pull_request.merged == true && startsWith(github.head_ref, 'Update SP to')
     runs-on: ubuntu-latest
     steps:
       - run: echo "Release PR branch"
