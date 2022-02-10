@@ -3,9 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       tags:
-        description: 'Manual'
         required: true
-        type: boolean
   pull_request:
     types:
       - closed
@@ -17,4 +15,4 @@ jobs:
     if:  true
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Release PR branch ${{ github.event.inputs }}"
+      - run: echo "Release PR branch ${{ github.event.inputs.tags }}"
