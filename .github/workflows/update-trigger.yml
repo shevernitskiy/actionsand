@@ -9,7 +9,7 @@ jobs:
       - name: Update Types Repo
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          repository: shevernitskiy/actionsand
+          token: ${{ secrets.MAHAHUHA_PAT_FOR_SP_ORG_ACCESS }}
+          repository: skyrim-platform/skyrim-platform
           event-type: update-types
           client-payload: '{"version": "2.6.0", "url": "https://raw.githubusercontent.com/skyrim-multiplayer/skymp/main/skyrim-platform/src/platform_se/codegen/convert-files/skyrimPlatform.ts"}'
