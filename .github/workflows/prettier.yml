@@ -19,7 +19,7 @@ jobs:
         uses: rutajdash/prettier-cli-action@v1.0.0
         with:
           config_path: ./.prettierrc.yml
-          file_pattern: ['**/*.ts', '**/*.js']
+          file_pattern: '**/*.{js,ts}'
 
       - name: Prettier Output
         if: ${{ failure() }}
