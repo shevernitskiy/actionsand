@@ -1,5 +1,9 @@
 name: On Merge
 on:
+  workflow_dispatch:
+    inputs:
+      tags:
+        required: false
   pull_request:
     types:
       - closed
@@ -8,7 +12,7 @@ on:
 
 jobs:
   run_if:
-    if:  github.event.pull_request.merged == true && startsWith(github.head_ref, 'release(skyrim-platform)')
+    if:  (github.event.pull_request.merged == true && startsWith(github.head_ref, 'release(skyrim-platform)')) || github.event.inputs
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Release PR branch ${{ github.head_ref }}"
+      - run: echo "Release stuff"
