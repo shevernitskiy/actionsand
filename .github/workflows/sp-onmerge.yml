@@ -5,7 +5,7 @@ on:
       - closed
     branches:
       - main
-      
+
 jobs:
   run_if:
     if:  github.event.pull_request.merged == true && startsWith(github.head_ref, 'release(skyrim-platform)')
