@@ -1,10 +1,8 @@
 name: Prettier Check
-
 on:
   pull_request:
   push:
     branches: [main]
-
 jobs:
   prettier:
     name: Prettier Check
