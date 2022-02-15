@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-          ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       - name: Prettify code
