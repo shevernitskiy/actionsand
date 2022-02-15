@@ -19,5 +19,5 @@ jobs:
         id: prettier-run
         with:
           prettier_options: "--check"
-          same_commit: true
+          only_changed: true
           dry: true
