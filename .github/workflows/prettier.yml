@@ -18,5 +18,6 @@ jobs:
         uses: creyD/prettier_action@v4.2
         id: prettier-run
         with:
-          prettier_options: --check **/*.{js,ts,md}
+          prettier_options: "--check **/*.{js,ts,md}"
           same_commit: true
+          dry: true
