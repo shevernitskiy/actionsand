@@ -19,6 +19,4 @@ jobs:
         id: prettier-run
         with:
           prettier_options: --check **/*.{js,ts,md}
-          same_commit: True
-          dry: True
-
+          same_commit: true
