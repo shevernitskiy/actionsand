@@ -18,5 +18,6 @@ jobs:
         uses: creyD/prettier_action@v4.2
         id: prettier-run
         with:
-          only_changed: true
+          file_pattern: "**/*.{ts,js}"
+          same_commit: true
           dry: true
