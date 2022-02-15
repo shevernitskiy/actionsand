@@ -18,6 +18,5 @@ jobs:
         uses: creyD/prettier_action@v4.2
         id: prettier-run
         with:
-          prettier_options: "--check"
           only_changed: true
           dry: true
