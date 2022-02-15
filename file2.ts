@@ -3,14 +3,14 @@
 // Generated automatically. Do not edit.
 
 export declare class PapyrusObject {
-  static from(papyrusObject: PapyrusObject|null): PapyrusObject | null
+  static from(papyrusObject: PapyrusObject|    null): PapyrusObject | null
 }
 export type PapyrusValue = PapyrusObject | number | string | boolean | null | PapyrusValue[]
 export declare function printConsole(...arguments: unknown[]): void
 export declare function writeLogs(pluginName: string, ...arguments: unknown[]): void
 export declare function setPrintConsolePrefixesEnabled(enabled: boolean): void
 export declare function callNative(className: string, functionName: string, self?: PapyrusObject, ...args: PapyrusValue[]): PapyrusValue
-export declare function getJsMemoryUsage(): number
+export declare function getJsMemoryUsage(): number;
 export declare function getPluginSourceCode(pluginName: string): string
 export declare function writePlugin(pluginName: string, newSources: string): string
 export declare function getPlatformVersion(): string
