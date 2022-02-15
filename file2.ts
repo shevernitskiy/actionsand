@@ -3,7 +3,7 @@
 // Generated automatically. Do not edit.
 
 export declare class PapyrusObject {
-  static from(papyrusObject: PapyrusObject | null): PapyrusObject | null
+  static from(papyrusObject: PapyrusObject|null): PapyrusObject | null
 }
 export type PapyrusValue = PapyrusObject | number | string | boolean | null | PapyrusValue[]
 export declare function printConsole(...arguments: unknown[]): void

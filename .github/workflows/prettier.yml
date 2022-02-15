@@ -13,13 +13,15 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
-      - name: Run Prettier
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.2
         id: prettier-run
-        uses: rutajdash/prettier-cli-action@v1.0.0
         with:
-          config_path: ./.prettierrc.yml
-          file_pattern: '**/*.{js,ts}'
+          only_changed: True
+          dry: True
 
       - name: Prettier Output
         if: ${{ failure() }}
