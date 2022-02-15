@@ -12,7 +12,7 @@ export declare function setPrintConsolePrefixesEnabled(enabled: boolean): void
 export declare function callNative(className: string, functionName: string, self?: PapyrusObject, ...args: PapyrusValue[]): PapyrusValue
 export declare function getJsMemoryUsage():number;
 export declare function getPluginSourceCode(pluginName: string): string
-export declare function writePlugin(pluginName: string, newSources: string): string
+export declare function writePlugin(pluginName:string, newSources: string): string
 export declare function getPlatformVersion(): string
 export declare function disableCtrlPrtScnHotkey(): void
 export declare function sendIpcMessage(targetSystemName: string, message: ArrayBuffer): void
