@@ -13,7 +13,7 @@ export declare function callNative(className: string, functionName: string, self
 export declare function getJsMemoryUsage():number;
 export declare function getPluginSourceCode(pluginName: string): string
 export declare function writePlugin(pluginName:string, newSources: string): string
-export declare function getPlatformVersion(): string
+export declare function getPlatformVersion(): string;
 export declare function disableCtrlPrtScnHotkey(): void;
 export declare function sendIpcMessage(targetSystemName: string, message: ArrayBuffer): void
 export declare function encodeUtf8(text: string): ArrayBuffer
