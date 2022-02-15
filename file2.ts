@@ -11,7 +11,7 @@ export declare function writeLogs(pluginName: string, ...arguments: unknown[]): 
 export declare function setPrintConsolePrefixesEnabled(enabled: boolean): void
 export declare function callNative(className: string, functionName: string, self?: PapyrusObject, ...args: PapyrusValue[]): PapyrusValue
 export declare function getJsMemoryUsage():number;
-export declare function getPluginSourceCode(pluginName: string): string
+export declare function getPluginSourceCode(pluginName: string): string;
 export declare function writePlugin(pluginName:string, newSources: string): string
 export declare function getPlatformVersion(): string;
 export declare function disableCtrlPrtScnHotkey(): void;
