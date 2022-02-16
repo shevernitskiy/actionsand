@@ -18,5 +18,5 @@ jobs:
         uses: creyD/prettier_action@v4.2
         id: prettier-run
         with:
-          prettier_options: --check **/*.{js,ts,md} --config ./.prettierrc.yml
+          prettier_options: --check "**/*.{js,ts,md}" --config "./.prettierrc.yml" --ignore-path "./.prettierignore" 
           dry: true
