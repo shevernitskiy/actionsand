@@ -45,10 +45,10 @@ jobs:
           ==============================================================
           📜 List of diff flies:"
           for file in $(git diff --name-only $prev_sha ${{ github.sha }}); do
-            array=("js" "ts" "yml")
             for element in "${pattern[@]}"
             do
-              if [[ $file == *$element* ]]; then
+              if [[ $file == *$element* ]]
+              then
                 result=true
                 echo "🚨 $file > $element"
               else
