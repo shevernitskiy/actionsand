@@ -59,4 +59,4 @@ jobs:
       - name: Check
         run: |
           echo "Check ${{ env.ismatch }}"
-          echo "Check2 ${{ steps.files.output.result }}"
+          echo "Check2 ${{ steps.files.outputs.result }}"
