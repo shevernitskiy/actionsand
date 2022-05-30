@@ -43,15 +43,16 @@ jobs:
           ⤴️ Current sha: ${{ github.sha }}
           ⬇️ Previous sha: $prev_sha
           ==============================================================
-          📜 List of diff flies files:"
+          📜 List of diff flies:"
           for file in $(git diff --name-only $prev_sha ${{ github.sha }}); do
-            echo "🔸$file"
             array=("js" "ts" "yml")
             for element in "${pattern[@]}"
             do
               if [[ $file == *$element* ]]; then
                 result=true
                 echo "🚨 $file mathing $element"
+              else
+                echo "🔸$file"
               fi
             done
           done
