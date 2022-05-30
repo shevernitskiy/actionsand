@@ -50,9 +50,9 @@ jobs:
             do
               if [[ $file == *$element* ]]; then
                 result=true
-                echo "🚨 $file mathing $element"
+                echo "🚨 $file > $element"
               else
-                echo "🔸$file"
+                echo "🔸 $file"
               fi
             done
           done
