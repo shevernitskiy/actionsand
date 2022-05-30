@@ -33,5 +33,5 @@ jobs:
         run: |
           echo Add other actions to build,
           echo Bracnh ${{ github.ref_name }}
-          git diff --name-only ${{ github.ref_name }}:HEAD^ ${{ github.ref_name }}:HEAD
+          git diff --name-only ${{ github.ref_name }}:${{ github.sha }} ${{ github.ref_name }}:HEAD
           echo "sha ${{ github.sha }}"
