@@ -54,7 +54,7 @@ jobs:
           echo "ismatch=$ismatch" >> $GITHUB_ENV
           echo "Result: ${{ env.ismatch }}"
           echo "Result1: $ismatch"
-          echo "::set-output name=result::$ismatch\n"
+          echo "::set-output name=result::$ismatch"
 
       - name: Check
         run: |
