@@ -35,10 +35,12 @@ jobs:
         run: |
           pattern=(".fs" ".fsproj" "yml")
           result=false
+          echo "=============================================================="
           echo "Barnch: ${{ github.ref_name }}"
           echo "Current sha: ${{ github.sha }}"
           prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
           echo "Previous sha: $prev_sha"
+          echo "=============================================================="
           echo "List of diff flies files:"
           for file in $(git diff --name-only $prev_sha ${{ github.sha }}); do
             echo "🔸$file"
@@ -52,9 +54,9 @@ jobs:
             done
           done
           echo "result=$result" >> $GITHUB_ENV
-          echo "Result: ${{ env.result }}"
-          echo "Result1: $result"
           echo "::set-output name=result::$result"
+          echo "=============================================================="
+          echo "Result: $result"
 
       - name: Check
         run: |
