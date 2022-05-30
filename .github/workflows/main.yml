@@ -31,14 +31,9 @@ jobs:
       # Runs a set of commands using the runners shell
       
       - name: Hey
-        run: echo "hey"
+        run: |
+          echo "barnch: ${{ github.ref_name }}"
+          echo "sha: ${{ github.sha }}"
+          git rev-parse --quiet --verify ${{ github.sha }}
+          git rev-parse --quiet --verify ${{ github.sha }}^
 
-      - uses: technote-space/get-diff-action@v6
-        with:
-          PATTERNS: |
-            **.yml
-            *.fsproj
-      
-      - name: Optional
-        if: env.GIT_DIFF
-        run: echo "YES"
