@@ -31,6 +31,7 @@ jobs:
       # Runs a set of commands using the runners shell
       
       - name: Hey
+        run: echo "hey"
 
       - uses: technote-space/get-diff-action@v6
         with:
