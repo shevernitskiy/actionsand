@@ -33,12 +33,12 @@ jobs:
       - name: Hey
         id: files
         run: |
-          pattern=(".fs" ".fsproj" "yml")
+          pattern=(".fs" ".fsproj" "ewml")
           result=false
+          prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
           echo "=============================================================="
           echo "Barnch: ${{ github.ref_name }}"
           echo "Current sha: ${{ github.sha }}"
-          prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
           echo "Previous sha: $prev_sha"
           echo "=============================================================="
           echo "List of diff flies files:"
