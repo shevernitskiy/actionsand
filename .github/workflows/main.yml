@@ -31,6 +31,7 @@ jobs:
       # Runs a set of commands using the runners shell
 
       - name: Hey
+        id: files
         run: |
           pattern=(".fs" ".fsproj" "yml")
           ismatch=false
@@ -53,3 +54,9 @@ jobs:
           echo "ismatch=$ismatch" >> $GITHUB_ENV
           echo "Result: ${{ env.ismatch }}"
           echo "Result1: $ismatch"
+          echo "::set-output name=result::$ismatch\n"
+
+      - name: Check
+        run: |
+          echo "Check ${{ env.ismatch }}"
+          echo "Check2 ${{ steps.files.output.result }}"
