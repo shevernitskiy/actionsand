@@ -33,7 +33,7 @@ jobs:
       - name: Changed files
         id: files
         run: |
-          pattern=(".fs" ".fsproj" "blabla")
+          pattern=(".fs" ".fsproj" ".yml")
           result=false
           prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
           echo "
@@ -43,7 +43,6 @@ jobs:
           ⤴️ Current sha: ${{ github.sha }}
           ⬇️ Previous sha: $prev_sha
           ==============================================================
-
           📜 List of diff flies files:"
           for file in $(git diff --name-only $prev_sha ${{ github.sha }}); do
             echo "🔸$file"
@@ -58,8 +57,7 @@ jobs:
           done
           echo "result=$result" >> $GITHUB_ENV
           echo "::set-output name=result::$result"
-          echo "
-          =============================================================="
+          echo "=============================================================="
           echo "🏁 Result: $result"
 
       - name: Use my results
