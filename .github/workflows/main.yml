@@ -36,8 +36,8 @@ jobs:
       - uses: technote-space/get-diff-action@v6
         with:
           PATTERNS: |
-            **/*.yml
-            **/*.fsproj
+            *.yml
+            *.fsproj
       
       - name: Optional
         if: env.GIT_DIFF
