@@ -33,7 +33,8 @@ jobs:
       - name: Hey
         run: |
           echo "barnch: ${{ github.ref_name }}"
-          echo "sha: ${{ github.sha }}"
-          git rev-parse --quiet --verify ${{ github.sha }}
-          git rev-parse --quiet --verify ${{ github.sha }}^
+          echo "current sha: ${{ github.sha }}"
+          prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
+          echo "previous sha: $prev_sha"
+          git diff --name-only $prev_sha ${{ github.sha }}
 
