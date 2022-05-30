@@ -34,7 +34,7 @@ jobs:
         id: files
         run: |
           pattern=(".fs" ".fsproj" "yml")
-          ismatch=false
+          result=false
           echo "Barnch: ${{ github.ref_name }}"
           echo "Current sha: ${{ github.sha }}"
           prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
@@ -46,17 +46,17 @@ jobs:
             for element in "${pattern[@]}"
             do
               if [[ $file == *$element* ]]; then
-                ismatch=true
+                result=true
                 echo "⚠️$file mathing $element"
               fi
             done
           done
-          echo "ismatch=$ismatch" >> $GITHUB_ENV
-          echo "Result: ${{ env.ismatch }}"
-          echo "Result1: $ismatch"
-          echo "::set-output name=result::$ismatch"
+          echo "result=$result" >> $GITHUB_ENV
+          echo "Result: ${{ env.result }}"
+          echo "Result1: $result"
+          echo "::set-output name=result::$result"
 
       - name: Check
         run: |
-          echo "Check ${{ env.ismatch }}"
+          echo "Check ${{ env.result }}"
           echo "Check2 ${{ steps.files.outputs.result }}"
