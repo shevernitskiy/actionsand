@@ -44,12 +44,12 @@ jobs:
             array=("js" "ts" "yml")
             for element in "${pattern[@]}"
             do
-              echo "Testing for $element"
               if [[ $file == *$element* ]]; then
                 ismatch=true
-                echo "🛑$file mathing $element"
+                echo "⚠️$file mathing $element"
               fi
             done
           done
           echo "ismatch=$ismatch" >> $GITHUB_ENV
-          echo ${{ env.ismatch }}
+          echo "Result: ${{ env.ismatch }}"
+          echo "Result1: $ismatch"
