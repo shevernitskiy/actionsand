@@ -36,9 +36,8 @@ jobs:
           echo "current sha: ${{ github.sha }}"
           prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
           echo "previous sha: $prev_sha"
-          $diff=$(git diff --name-only $prev_sha ${{ github.sha }})
           echo "Diff files:"
-          for file in $diff; do
+          for file in $(git diff --name-only $prev_sha ${{ github.sha }}); do
             echo "$file was changed"
           done
           
