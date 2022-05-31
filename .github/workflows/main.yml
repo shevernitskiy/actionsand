@@ -32,9 +32,6 @@ jobs:
 
       - name: Changed files
         id: files
-        args:
-          - 'ondefile',
-          - 'twofilke'
         run: |
           echo "one $1"
           pattern=(".fs" ".fsproj" ".yml")
