@@ -33,7 +33,7 @@ jobs:
       - name: Changed files
         id: files
         run: |
-          pattern=(".fs" ".fsproj" ".yml")
+          pattern=(".js" ".fsproj" ".yml")
           result=false
           prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
           echo "==============================================================
@@ -42,7 +42,7 @@ jobs:
           ⤴️ Current sha: ${{ github.sha }}
           ⬇️ Previous sha: $prev_sha
           ==============================================================
-          📜 List of diff flies:"
+          📜 List of diff files:"
           for file in $(git diff --name-only $prev_sha ${{ github.sha }}); do
             echo "🔸 $file"
             for element in "${pattern[@]}"

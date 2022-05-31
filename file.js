@@ -1,3 +1,3 @@
-var loader = require('./dist')
+var loader = require('./dist123')
 
 module.exports = loader
