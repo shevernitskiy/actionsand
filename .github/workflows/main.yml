@@ -36,8 +36,7 @@ jobs:
           pattern=(".fs" ".fsproj" ".yml")
           result=false
           prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
-          echo "
-          ==============================================================
+          echo "==============================================================
           ♿️ fsharp owned you
           🚧 Branch: ${{ github.ref_name }}
           ⤴️ Current sha: ${{ github.sha }}
