@@ -33,7 +33,6 @@ jobs:
       - name: Changed files
         id: files
         run: |
-          echo "one $1"
           pattern=(".fs" ".fsproj" ".yml")
           result=false
           prev_sha=$(git rev-parse --quiet --verify ${{ github.sha }}^)
